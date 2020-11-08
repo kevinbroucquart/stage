@@ -1,0 +1,161 @@
+<!-- Alerts START  -->
+<div id="alerts" class="col-md-3">
+    <div id="alert_user_success" style="display:none" class="alert alert-success" role="alert">
+        <p> La souscription a été correctement créée !</p>
+    </div>
+    <div id="alert_sup_error" style="display:none" class="alert alert-danger" role="alert">
+        <p> Une erreur est survenue ! </p>
+    </div>
+</div>
+<!-- Alerts END  -->
+<!-- Title START -->
+<div class="row titre">
+    <div class="col-md-8 col-sm-12">
+        <h4 id="titre1">Souscrire à un serveur</h4>
+    </div>
+</div>
+<!-- Title END -->
+<div class="row carre">
+    <div class="col-md-7 col-sm-12">
+        <!-- nav item Name START -->
+        <nav id="nav-tab" class="nav nav-tabs" role="tablist" style="opacity: 0.5; pointer-events: none;">
+            <a class="nav-item nav-link tabNav onglet active " href="#" data-target="page1" id="onglet1"
+                data-toggle="tab">CONFIGURATION</a>
+            <a class="nav-item nav-link tabNav onglet" href="#" data-target="page2" id="onglet2"
+                data-toggle="tab">OPTIONS</a>
+            <a class="nav-item nav-link tabNav onglet prix" href="#" data-target="page3" id="onglet3"
+                data-toggle="tab">RECAPITULATIF</a>
+        </nav>
+        <!-- nav item Name END -->
+        <div class="tab-content">
+            <!-- Configuration START -->
+            <div id="page1">
+                <p>Configuration du service</p>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div id="CpuRange" class="slidecontainer">
+                            <!-- Range input CPU -->
+                        </div>
+                        <div id="RamRange" class="slidecontainer">
+                            <!-- Range input RAM -->
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div id="StorageRange" class="slidecontainer">
+                            <!-- Range input STORAGE -->
+                        </div>
+                        <div class="col-md-11 offset-1">
+                            <select class="form-control" name="servicelist" id="servicelist" form="servicelist" required>
+                            <!-- CT LIST -->
+                        </select>
+                        </div>
+                        <div id="ErrorMissingService" display="none" style="color: rgb(207, 71, 71); font-style: italic;">Veuillez choisir un service.</div>
+                    </div>
+                </div>
+                <div class="bouton">
+                    <button href="#" id="next" class="tabNav btnNext">Suivant</button>
+                </div>
+            </div>
+            <!-- Configuration END -->
+            <!-- Options START -->
+            <div id="page2" style="display:none">
+                <p>Options avancées</p>
+                <div class="row">
+                    <div class="col-md-6 col-sm-12 checkbox">
+                        <input type="checkbox" id="wan" name="wan" disabled="disabled">
+                        <label for="wan">WAN</label>
+                        <br>
+                        <input type="checkbox" id="protection" name="protection">
+                        <label for="protection">Protection par HA</label>
+                        <br>
+                        <input type="checkbox" id="replication" name="replication" disabled="disabled">
+                        <label for="replication">Réplication du service</label>
+                    </div>
+                    <div class="col-md-6 col-sm-12 retention">
+                        <p id="retention" style="color:#97989a">Rétention des données <br> (nombre de backup) : <span id="maxBackup" style="color:black"> 2 </span></p>
+                    </div>
+                </div>
+                <div class="bouton">
+                    <button class="tabNav btnPrev" data-target="page1">Précédent</button>
+                    <button class="tabNav btnNext" data-target="page3">Suivant</button>
+                </div>
+            </div>
+            <!-- Options END -->
+            <!-- Recap START -->
+            <div id="page3" style="display:none">
+                <p>Récapitulatif de la commande</p>
+                <div class="row">
+                    <div class="col-md-6 offset-md-1 cardTab">
+                        <div class="card-body table-responsive">
+                            <table class="table">
+                                <tr>
+                                    <td class="text-warning">Nom</td>
+                                    <td class="text-bodytab" id="serviceName">
+                                        <!-- load service name selected -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">CPU</td>
+                                    <td id="cpu" class="text-bodytab">
+                                        <!-- Dynamic value -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">RAM (GO)</td>
+                                    <td id="ram" class="text-bodytab">
+                                        <!-- Dynamic value -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">Espace disque (GO)</td>
+                                    <td id="storage" class="text-bodytab">
+                                        <!-- Dynamic value -->
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">HA</td>
+                                    <td id="ha" class="text-bodytab"><img src="assets/icons/no.svg" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">Réplication du service</td>
+                                    <td id="ha" class="text-bodytab"><img src="assets/icons/no.svg" alt=""></td>
+                                </tr>
+                                <tr>
+                                    <td class="text-warning">Nombre de backup</td>
+                                    <td class="text-bodytab" id="backupNb">
+                                        <!-- load backup number selected -->
+                                    </td>
+                                </tr>
+                            </table>
+                        </div>
+                    </div>
+                    <div class="col-md-5 col2">
+
+                        <p id="prix"></p>
+
+                        <div id="mdp">
+                            <label for="pass">Mot de passe du Serveur :</label>
+                            <input class="form-control" type="password" id="pass" name="password" minlength="5"
+                                required>
+                            <div id="error-pass"></div>
+                        </div>
+                        <div id="validation" class="bouton">
+                            <button class="tabNav btnPrev" data-target="page2">Précédent</button>
+                            <button id="Valid" class="btnVal" type="submit">Valider</button>
+                        </div>
+                        <div id="loading" style="display:none">
+                            <p><i class="fa fa-spin fa-spinner"></i> Please Wait</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Recap END -->
+        </div>
+    </div>
+</div>
+<link rel="stylesheet" href="assets/css/addvps.css">
+
+<script type="text/javascript" src="assets/js/range.js"></script>
+<script src="assets/js/vm/virtual_machine.js"></script>
+<script src="assets/js/tabNav.js"></script>
+<script src="assets/js/user/getUserMain.js"></script>

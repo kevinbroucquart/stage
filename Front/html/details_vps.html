@@ -1,0 +1,300 @@
+<!--==============================================================
+=======================   <VPS> PAGE   =========================
+==============================================================-->
+
+<!-- TABLEAU RECAPITULATIF -->
+
+
+
+<!--*** Alerts START ***-->
+<div id="alerts" class="col-md-3">
+    <div id="alert_cpu_success" style="display:none" class="alert alert-success" role="alert">
+        <p> Les données CPU ont bien été mises à jour ! </p>
+    </div>
+    <div id="alert_ram_success" style="display:none" class="alert alert-success" role="alert">
+        <p> Les données RAM ont bien été mises à jour !</p>
+    </div>
+    <div id="alert_storage_success" style="display:none" class="alert alert-success" role="alert">
+        <p> Les données de l'espace disque ont été mises à jour !</p>
+    </div>
+    <div id="alert_ha_success" style="display:none" class="alert alert-success" role="alert">
+        <p> Les données HA ont bien été mises à jour ! </p>
+    </div>
+    <div id="alert_nbMaxSnapshot_error" style="display:none" class="alert alert-danger" role="alert">
+        <p> Vous avez atteint le nombre maximum de snapshots ! </p>
+    </div>
+    <div id="alert_error" style="display:none" class="alert alert-danger" role="alert">
+        <p> Une erreur s'est produite ! </p>
+    </div>
+    <div id="alert_sup_sub" style="display:none" class="alert alert-danger" role="alert">
+        <p> Vous avez été désabonné de ce service ! </p>
+    </div>
+    <div id="alert_storage" style="display:none" class="alert alert-danger" role="alert">
+        <p> Vous ne pouvez pas baisser la valeur de l'espace disque ! </p>
+    </div>
+    <div id="general_success_popup" style="display:none" class="alert alert-success" role="alert">
+    </div>
+    <div id="general_info_popup" style="display:none" class="alert alert-info" role="alert">
+    </div>
+    <div id="general_error_popup" style="display:none" class="alert alert-danger" role="alert">
+    </div>
+</div>
+<!--*** Alerts START ***-->
+<div id="detailsVps" class="row carre">
+
+    <!--*** Subscription EndDate START ***-->
+    <div class="col-md-12 subEnd">
+        <div class="col-xs-12 col-md-4" id="divDesabonnement" style="display: none;">Votre abonnement à ce service
+            s'arrêtera le : </div>
+    </div>
+    <!--*** Subscription EndDate END ***-->
+
+    <div class="col-md-8 col-xs-12 col-sm-9 col-lg-4" id="col1">
+
+        <div class="cardTab">
+            <div class="card-header">
+                <h4 class="card-title" id="description">Service : </h4>
+                <p class="card-category" id="price"></p>
+            </div>
+            <div class="card-body table-responsive">
+
+                <table class="table">
+                    <tr>
+                        <td class="text-warning">Nom</td>
+                        <td class="text-bodytab" id="nom"></td>
+                    </tr>
+                    <tr>
+                        <td class="text-warning">CPU </td>
+                        <td id="cpu_update" class="text-bodytab">
+                            <button class="modifyValue btn_save" id="modif_cpu" style="display:none"
+                                title="Enregistrer"><img src="assets/icons/tick.svg" alt=""></button>
+                            <button class="modifyValue" id="cancel_modif_cpu" style="display:none" onclick="cancelCpu()"
+                                title="Annuler"><img src="assets/icons/close.svg" alt=""></button><br>
+                            <div id="patienterCpu" style="display: none;">Veuillez patienter...</div>
+                            <div id="errorCpu" style="display: none; color: rgb(207, 71, 71); font-style: italic;">
+                                Saisie incorrecte !</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-warning">RAM (GO)</td>
+                        <td id="ram_update" class="text-bodytab">
+                            <button class="modifyValue btn_save" id="modif_ram" style="display:none"
+                                title="Enregistrer"><img src="assets/icons/tick.svg" alt=""></button>
+                            <button class="modifyValue" id="cancel_modif_ram" style="display:none" onclick="cancelRam()"
+                                title="Annuler"><img src="assets/icons/close.svg" alt=""></button><br>
+                            <div id="patienterRam" style="display: none;">Veuillez patienter...</div>
+                            <div id="errorRam" style="display: none; color: rgb(207, 71, 71); font-style: italic;">
+                                Saisie incorrecte !</div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-warning">Espace disque (GO)</td>
+                        <td id="storage_update" class="text-bodytab">
+                            <button class="modifyValue btn_save" id="modif_storage" style="display:none"
+                                title="Enregistrer"><img src="assets/icons/tick.svg" alt=""></button>
+                            <button class="modifyValue" id="cancel_modif_storage" style="display:none"
+                                onclick="cancelStorage()" title="Annuler"><img src="assets/icons/close.svg"
+                                    alt=""></button><br>
+                            <div id="patienterStorage" style="display: none;">Veuillez patienter...</div>
+                            <div id="errorStorage" style="display: none; color: rgb(207, 71, 71); font-style: italic;">
+                                Saisie incorrecte !</div>
+
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-warning">HA</td>
+                        <td class="text-bodytab">
+                            <div class="custom-control custom-switch" style="margin-left: 10px">
+                                <input type="checkbox" class="custom-control-input" id="haSelect" onclick="btnHa()">
+                                <label class="custom-control-label changeStatus" for="haSelect"
+                                    id="haSelectLabel"></label>
+                            </div>
+                            <div id="errorHa" style="display: none;">Une erreur est survenue.</div>
+                        </td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-warning">Nombre de backup</td>
+                        <td class="text-bodytab" id="nbBackup"></td>
+                    </tr>
+
+                    <tr>
+                        <td class="text-warning">Statut</td>
+                        <td class="text-bodytab statut" id="status"></td>
+                    </tr>
+
+                </table>
+
+                <h3 class="options">Options</h3>
+
+                <!-- OPTIONS -->
+                <div id="tasks" class="row img">
+                    <div class="stop">
+                        <a style="display:none" id="optVPS">
+                            <span title="Arreter le serveur"><img src="assets/icons/stopbtn.png" alt=""
+                                    id="imgStop"><br>Arrêter</span>
+                        </a>
+                        <a style="display:none" id="optStartVPS">
+                            <span title="Demarrer le serveur"><img src="assets/icons/powerbtn.png" alt=""
+                                    id="imgStart"><br> Démarrer</span>
+                        </a>
+                    </div>
+                    <div class="restart">
+                        <a id="restartVPS">
+                            <span title="Restart service"><img src="assets/icons/re.png" alt=""
+                                    id="restartService"><br>Redémarrer</span>
+                        </a>
+                        <a id="restartReading" style="display: none">
+                            <span title="Restart en cours"><img src="assets/icons/re.png" alt=""
+                                    id="restartService"><br>Redémarrage en cours</span>
+                        </a>
+                    </div>
+                    <div class="snapshot">
+                        <a id="optSnapshot">
+                            <span title="Créer un snapshot"><img src="assets/icons/photo.png" alt=""
+                                    id="imgSnapshot"><br>Snapshot</span>
+                        </a>
+                        <a id="optSnapshotReading" style="display: none">
+                            <span title="Snapshot en cours"><img src="assets/icons/photo.png" alt=""
+                                    id="imgSnapshot"><br>Snapshot en cours</span>
+                        </a>
+                    </div>
+                    <div id="unsubscribe">
+                        <a class="unSub">
+                            <span title="Se désabonner du service"><img src="assets/icons/cross.png" alt=""
+                                    id="imgDelete"><br> Se désabonner</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- deuxième colonne -->
+
+    <div class="col-md-12 col-sm-12 col-xs-12 col-lg-8" id="col2">
+        <div class="bouton">
+            <button class="btnAWS" id="panel">Console</button>
+            <button class="btnAWS"> Créer un dossier</button>
+            <button class="btnAWS">Télécharger</button>
+            <div class="dropdown">
+                <button class="dropdown-toggle btnAWS" type="button" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false"> Actions </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                    <a class="dropdown-item" href="#">Action</a>
+                    <a class="dropdown-item" href="#">Another action</a>
+                    <a class="dropdown-item" href="#">Something else here</a>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <div class="row diagramme">
+            <div id="diagCpu" class="card m-0">
+                <div class="card-body">
+                    <h5 class="tex-left">CPU (%)</h5>
+                    <canvas id="myChartCPU"></canvas>
+                    <h6 id="consoCPU" class="text-center"></h6>
+                </div>
+            </div>
+            <div id="diagRam" class="card mx-1">
+                <div class="card-body">
+                    <h5 class="text-left">RAM (GIB)</h5>
+                    <canvas id="myChartRAM"></canvas>
+                    <h6 id="consoRAM" class="text-center"></h6>
+                </div>
+                <div id="general_error_popup" style="display:none" class="col-md-2 alert alert-danger" role="alert">
+                </div>
+                <div id="general_info_popup" style="display:none" class="col-md-2 alert alert-info" role="alert">
+                </div>
+            </div>
+            <div id="diagEd" class="card m-0">
+                <div class="card-body">
+                    <h5 class="text-left">Espace Disque (GIB)</h5>
+                    <canvas id="myChartED"></canvas>
+                    <h6 id="consoED" class="text-center"></h6>
+                </div>
+            </div>
+        </div>
+        <hr>
+
+        <!-- TABLEAU BACKUP ET SNAPSHOT -->
+
+        <div class="col-md-12 col-sm-12">
+            <nav>
+                <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                    <a class="nav-link active" id="nav-backup-tab" data-toggle="tab" href="#nav-backup" role="tab"
+                        aria-controls="nav-backup" aria-selected="true">BACKUP</a>
+                    <a class="nav-link" id="nav-snapshot-tab" data-toggle="tab" href="#nav-snapshot" role="tab"
+                        aria-controls="nav-snapshot" aria-selected="false">SNAPSHOT</a>
+                </div>
+            </nav>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="nav-backup" role="tabpanel" aria-labelledby="nav-backup-tab">
+                    <div class="table-responsive table-striped">
+                        <table class="col-md-12 tab_save">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Format</th>
+                                    <th scope="col">Taille</th>
+                                    <th scope="col">Upload</th>
+                                    <th scope="col">Supprimer</th>
+                                    <th scope="col">Restaurer</th>
+                                </tr>
+                            </thead>
+                            <tbody id="backup">
+                                <!-- TABLEAU BACKUP -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <div class="tab-pane fade" id="nav-snapshot" role="tabpanel" aria-labelledby="nav-snapshot-tab">
+                    <div class="table-responsive table-striped">
+                        <table class="col-md-12 tab_save">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Nom</th>
+                                    <th scope="col">Date</th>
+                                    <th scope="col">Description</th>
+                                    <th scope="col">Supprimer</th>
+                                    <th scope="col">Restaurer</th>
+                                </tr>
+                            </thead>
+                            <tbody id="snapshot">
+                                <!-- TABLEAU SNAPSHOT -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- .row .carre END -->
+</div><!-- .row .carre END -->
+
+<!--=====    BLOCK SPECIFIC CSS     =====-->
+<link rel="stylesheet" href="assets/css/vps.css">
+
+<!--=====    BLOCK TASKS SCRIPT     =====-->
+<script src="assets/js/tasks/backup.js"></script>
+<script src="assets/js/tasks/snapshot.js"></script>
+<script src="assets/js/tasks/shutdown.js"></script>
+<script src="assets/js/tasks/startSub.js"></script>
+<script src="assets/js/tasks/restartSub.js"></script>
+<script src="assets/js/tasks/panel.js"></script>
+
+<!--=====    BLOCK AWS SCRIPT     =====-->
+<script src="assets/js/aws/uploadFile.js"></script>
+
+<!--=====    BLOCK SUBSCRIPTIONS SCRIPT     =====-->
+<script src="assets/js/subscriptions/getSubDash.js"></script>
+<script src="assets/js/subscriptions/getSubscriptionsStatus.js"></script>
+<script src="assets/js/subscriptions/get_subscriptionsVPS.js"></script>
+<!--<script src="assets/js/subscriptions/getsubscriptions.js"></script>-->
+<script src="assets/js/subscriptions/updateSubscription.js"></script>
+<script src="assets/js/subscriptions/unSubscription.js"></script>
+
+<!--=====   BLOCK DIAGRAMS     =====-->
+<script src="assets/js/diagram_functions.js"></script>
+<script src="assets/js/ressources/detail_view_ressources.js"></script>
