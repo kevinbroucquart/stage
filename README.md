@@ -24,8 +24,8 @@ FRONT = HTML/ CSS
 
 Mon travail sur le projet = 
 
-1ere partie (front) : Réalisation d'une maquette adobe xd pour la refonte graphique
-2éme partie (front) : Intégration en HTML / CSS de la maquette
-3éme partie (front) : Elaboration des call API (via ajax) tout en respectant l'interaction avec l'utilisateur (blocage de page lors d'un chargement, loader , messages lors de l'action...)
-4éme partie (back)  : Création d'une table Global property attribute servant ainsi de back office
-5éme partie (front- back) : Passage en Tierce Maintenance Application (à partir des tickets Trello , résolution de différents bugs remontés par la TRA)
+1ère partie (front) : Réalisation d'une maquette adobe xd pour la refonte graphique
+2ème partie (front) : Intégration en HTML / CSS de la maquette
+3ème partie (front) : Elaboration des call API (via ajax) tout en respectant l'interaction avec l'utilisateur (blocage de page lors d'un chargement, loader , messages lors de l'action...)
+4ème partie (back)  : Création d'une table Global property attribute servant ainsi de back office
+5ème partie (front- back) : Passage en Tierce Maintenance Application (à partir des tickets Trello , résolution de différents bugs remontés par la TRA)
