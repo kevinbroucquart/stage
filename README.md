@@ -8,6 +8,18 @@ Organisation: - SCRUM AGILE
               - 3 collaborateurs FRONT
               - 4 collaborateurs BACK
               - 2 collaborateurs AWS
+
+
+Technologies utilisées :
+
+CONCEPTION: Abode XD
+
+VERSIONNING: Github
+
+BACK = PHP / SYMFONY 4.4
+
+FRONT = HTML/ CSS 
+      = JQUERY AJAX pour les appels d'api
           
 
 Ma contribution = 
